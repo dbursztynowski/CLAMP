@@ -1,0 +1,45 @@
+---
+
+- name: list OpenStack servers
+  hosts: os_agent
+
+  tasks:
+
+# =============================================
+# Log info preparatio (informative, irrelevant to the resizng as such
+# Playbook run delimiter with current timestamp
+
+  - name: local - Get timestamp from the system
+    shell: "date +%Y-%m-%d%H-%M-%S"
+    register: tstamp
+
+  - name: local - Set timestamp variable
+    set_fact:
+      cur_time: "{{ tstamp.stdout[10:]}}"
+
+  - name: local - print timestamp to the log file
+    local_action: 
+      module: copy 
+      content: ">>> Time: {{ cur_time }} ==================\n"
+      dest: /home/xubuntu/clamp/log/log.txt 
+
+  - name: remote - write delimiter to the log file
+    lineinfile:
+      dest: /home/xubuntu/clamp/logs/log.txt
+#      create: yes
+      insertafter: EOF
+      line: "\n>>> Time: {{ cur_time }} >>>>>>>>>>>>>>>>>>>>>"
+
+# =======================================================
+# Essential fragment - calling resize operation
+# Also, on the remote agent, write to log from running the OpenStack Nova script
+
+  - name: remote - run the script stored on the remote server
+    shell: /home/xubuntu/clamp/resize2m2.sh >> log.txt
+    args:
+      chdir: /home/xubuntu/clamp/logs/
+      executable: /bin/bash
+
+#    ansible.builtin.shell:
+#    shell: echo "Hello!"
+#     script: sh /home/xubuntu/clamp/test.sh

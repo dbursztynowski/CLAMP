@@ -1,0 +1,31 @@
+{
+   "event":{
+      "commonEventHeader":{
+         "domain":"measurementsForVfScaling",
+         "eventId":"mvfs00000001",
+         "eventName":"vFirewallBroadcastPackets",
+         "lastEpochMicrosec":1608136509825805,
+         "priority":"Normal",
+         "reportingEntityName":"wef-mme-vnf-igs5no5lphyj",
+         "sequence":0,
+         "sourceName":"wef-mme-vnf-igs5no5lphyj",
+         "startEpochMicrosec":1608136499825805,
+         "version":3.0,
+         "reportingEntityId":"No UUID available"
+      },
+      "measurementsForVfScalingFields":{
+         "measurementInterval":10,
+         "vNicPerformanceArray":[
+            {
+               "receivedOctetsDelta":43129.000000,
+               "receivedTotalPacketsDelta":0,
+               "transmittedOctetsDelta":0.000000,
+               "transmittedTotalPacketsDelta":0.000000,
+               "valuesAreSuspect":"true",
+               "vNicIdentifier":"eth1"
+            }
+         ],
+         "measurementsForVfScalingVersion":2.0
+      }
+   }
+}

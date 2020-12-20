@@ -1,0 +1,42 @@
+The query to check the MME stats is
+
+ 
+
+curl <monitor_fip>:9090/api/v1/query?query=mme_stats
+
+ 
+
+The return looks like this :
+
+ 
+
+{"status":"success","data":{"resultType":"vector","result":[{"metric":{"__name__":"mme_stats","consul_dc":"wef_test-control_plane","consul_node":"ugw-mme-1","instance":"172.16.10.14:8002","job":"consul","service":"custom-exporter","stat":"Attached_UEs"},"value":[1605006356.792,"0"]},{"metric":{"__name__":"mme_stats","consul_dc":"wef_test-control_plane","consul_node":"ugw-mme-1","instance":"172.16.10.14:8002","job":"consul","service":"custom-exporter","stat":"Connected_UEs"},"value":[1605006356.792,"0"]},{"metric":{"__name__":"mme_stats","consul_dc":"wef_test-control_plane","consul_node":"ugw-mme-1","instance":"172.16.10.14:8002","job":"consul","service":"custom-exporter","stat":"Connected_eNBs"},"value":[1605006356.792,"0"]},{"metric":{"__name__":"mme_stats","consul_dc":"wef_test-control_plane","consul_node":"ugw-mme-1","instance":"172.16.10.14:8002","job":"consul","service":"custom-exporter","stat":"Default_Bearers"},"value":[1605006356.792,"0"]},{"metric":{"__name__":"mme_stats","consul_dc":"wef_test-control_plane","consul_node":"ugw-mme-1","instance":"172.16.10.14:8002","job":"consul","service":"custom-exporter","stat":"S1-U_Bearers"},"value":[1605006356.792,"0"]}]}}
+
+
+
+Help:
+https://askubuntu.com/questions/952467/extracting-a-specific-string-after-a-given-string-from-html-file-using-a-bash-sc
+
+"Connected_UEs"},"value":[1605006356.792,"
+y="$(sed -rn '0,/.*MOM:(\w+).*/ s//\1/p' "$file")"
+
+awk: https://www.geeksforgeeks.org/awk-command-unixlinux-examples/
+     https://www.howtogeek.com/562941/how-to-use-the-awk-command-on-linux/
+	 http://www.gnu.org/software/gawk/manual/gawk.html#Splitting-By-Content
+
+Pomocne instrukcje:
+
+#nasłuchiwane porty	 
+netstat -tulpn | grep LISTEN
+
+#prosty serwer HTTP na maszynie
+python -m SimpleHTTPServer 8888 &
+
+#pobranie pliku z maszyny (ścieżka do memstat.log zaczyna się w katalogo, z którego uruchomiono SimpleHTTPServer (-v tryb verbose)
+curl -v http://10.254.184.197:8888/mmestat.log --output mmestat.log
+
+#uruchomienie procesu "long-run" - nie kilowanego po zakonczeniu sesji ssh
+nohup python -m SimpleHTTPServer 8888 &
+
+#direct the output of long-lived processes (run using nohup &) to newly opened ssh session window
+tail -f nohup.out
