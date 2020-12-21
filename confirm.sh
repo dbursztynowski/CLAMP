@@ -83,7 +83,6 @@ while [  $COUNTER -lt  $MAX_COUNTER ]; do
     let COUNTER=COUNTER+1
     openstack server list | grep "| test-resizevm-db | ACTIVE |"
     if openstack server list | grep -q "| test-resizevm-db | ACTIVE |" ; then
-        echo "ACTIVE entered, finishing. VM final status:"
         let ACTIVE=0
         break
     else
@@ -97,5 +96,5 @@ if [ $ACTIVE -eq 1 ]; then
     echo "ACTIVE not entered, finishing. VM final status:"
 else
     echo "VM is ACTIVE. VM final status:"
-    openstack server list | grep "test-resizevm-db"
 fi
+openstack server list | grep "test-resizevm-db"
