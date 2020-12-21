@@ -63,7 +63,7 @@ while True:
         r = action_gora()
         print ("Action gora response", r)
     
-        subprocess.Popen("/path/external_action_gora.sh", stdout=subprocess.PIPE, shell=True)
+        subprocess.Popen("resize2m2.sh", stdout=subprocess.PIPE, shell=True)
     
     if direction == 4:
         
@@ -71,5 +71,5 @@ while True:
         r= action_dol()
         print ("Action dol response", r)
 
-        subprocess.Popen("/path/external_action_dol.sh", stdout=subprocess.PIPE, shell=True)
+        subprocess.Popen("resize2m1.sh", stdout=subprocess.PIPE, shell=True)
     
