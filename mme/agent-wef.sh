@@ -10,12 +10,19 @@ URI="http://10.254.184.197:8888"
 #URI=$"real VES uri here"
 #a better form of VES URI: http://localhost:8080/eventListener/v5 -k
 
+echo ""
 while true
 do
 
+echo "xxxxxxxx"
+
 #fetch recent stats from MME
-#curl -v http://10.254.184.197:8888/mme-clamp.log --output mme-clamp.log
-curl -v http://10.254.184.197:8888/mme-clamp.log --output mme-clamp.log
+if [ "$1" = "-v" ]
+then 
+  curl -v  http://10.254.184.197:8888/mme-clamp.log --output mme-clamp.log
+else
+  curl     http://10.254.184.197:8888/mme-clamp.log --output mme-clamp.log
+fi
 
 #extract stats' values from thwe fetched log file
 MME_VM_NAME=$(grep -oP "MME_VM_NAME\K.*" ./mme-clamp.log)
@@ -32,10 +39,17 @@ echo "MME name:" $MME_VM_NAME "stats:" $Connected_enbs $Connected_ues $Attached_
 #=======================================
 
 #step 1. prepare a json file describing the event
-./VESprepareSendEvent.py $MME_VM_NAME $Attached_ues
+./VESprepareSendEvent.py $MME_VM_NAME $Attached_ues $1
 
 #step 2. send the event from prepared json file to VES
-curl -i  -X POST -d @VES_send_event.json --header "Content-Type: application/json" $URI 
+
+if [ "$1" = "-v" ]
+then
+  curl -i  -X POST -d @VES_send_event.json --header "Content-Type: application/json" $URI 
+else
+  curl -s -o -i  -X POST -d @VES_send_event.json --header "Content-Type: application/json" $URI  
+fi
+echo "VES event sent"
 #for testing with POST in Python: here are links to a project for Python2/3 python HTTP server with GET and POSTS requests (Simple does not suuport POST): 
 #  https://gist.github.com/mdonkers/63e115cc0c79b4f6b8b3a6b797e485c7
 
