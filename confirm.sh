@@ -92,10 +92,10 @@ while [  $COUNTER -lt  $MAX_COUNTER ]; do
     fi
 done
 
-#final result info
+#final status report
 if [ $ACTIVE -eq 1 ]; then
     echo "ACTIVE not entered, finishing. VM final status:"
 else
-    echo "VM final status:"
+    echo "VM is ACTIVE. VM final status:"
     openstack server list | grep "test-resizevm-db"
 fi
