@@ -59,17 +59,17 @@ while True:
 
     if direction == 6:
         
-        print ("Action gora", direction)
-        r = action_gora()
-        print ("Action gora response", r)
+        print ("Action: resize up", direction)
+        #r = action_gora() #this is for packet generator in vFW use case
+        #print ("Action response", r)
     
         subprocess.Popen("resize2m2.sh", stdout=subprocess.PIPE, shell=True)
     
     if direction == 4:
         
-        print ("Action dol", direction)
-        r= action_dol()
-        print ("Action dol response", r)
+        print ("Action: resize down", direction)
+        #r= action_dol() #this is for packet generator in vFW use case
+        #print ("Action response", r)
 
         subprocess.Popen("resize2m1.sh", stdout=subprocess.PIPE, shell=True)
     
