@@ -5,6 +5,7 @@
 #the best option is to prepare VM image with all these settings  present
 #while logged in on the machine, trace current logs of the script using:
 #tail -f nohup.out 
+#if needed, one can clear nohup.out by: cat /dev/null > nohup.out
 
 URI="http://10.254.184.197:8888"
 #URI=$"real VES uri here"
