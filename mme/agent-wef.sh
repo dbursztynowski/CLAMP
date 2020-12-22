@@ -11,6 +11,9 @@ URI="http://10.254.184.197:8888"
 #a better form of VES URI: http://localhost:8080/eventListener/v5 -k
 
 echo ""
+echo "Use parameter -v for a more detailed  output."
+echo ""
+
 while true
 do
 
