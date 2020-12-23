@@ -24,77 +24,79 @@ def action_dol():
     return r.status_code
 
 
-url = 'https://portal.api.simpledemo.onap.org:30226/events/APPC-CL/g1/c3?timeout=5000'
+#url = 'https://portal.api.simpledemo.onap.org:30226/events/APPC-CL/g1/c3?timeout=5000'
+url = 'https://10.254.184.250:30226/events/APPC-CL/g1/c3?timeout=5000'
 headers = {'accept': 'application/json', 'cache-control': 'no-cache', 'postman-token': '61210824-faf0-d843-218d-28337bab5d87'}
 
 requestID = None
 requestID_old = None
 
 #testing DB
-direc=4 #starting with smaller size
-direction = 0
+#direc=4 #starting with smaller size
+#direction = 0
+#end testin DB
 
 while True:
 
-#    time.sleep(5)
-#    r = requests.get(url, headers=headers, verify=False)
-#    event_json = r.json()
-#    print(event_json)
+    time.sleep(10)
+    r = requests.get(url, headers=headers, verify=False)
+    event_json = r.json()
+    print(event_json)
 
-#    direction = 0
-#    #event_json='["{\\"CommonHeader\\":{\\"TimeStamp\\":1608547151210,\\"APIver\\":\\"1.01\\",\\"RequestID\\":\\"08dd8ebc-00ff-43c5-bfbe-ecf5cf60beec\\",\\"SubRequestID\\":\\"ab23127d-fe65-4ae0-afe6-034dd0769afb\\",\\"RequestTrack\\":[],\\"Flags\\":[]},\\"Action\\":\\"ModifyConfig\\",\\"Payload\\":{\\"streams\\":{\\"active-streams\\":6},\\"generic-vnf.vnf-id\\":\\"bd6af5c1-fc85-446d-bb59-553b0404075b\\"}}"]'
+    direction = 0
+    #event_json='["{\\"CommonHeader\\":{\\"TimeStamp\\":1608547151210,\\"APIver\\":\\"1.01\\",\\"RequestID\\":\\"08dd8ebc-00ff-43c5-bfbe-ecf5cf60beec\\",\\"SubRequestID\\":\\"ab23127d-fe65-4ae0-afe6-034dd0769afb\\",\\"RequestTrack\\":[],\\"Flags\\":[]},\\"Action\\":\\"ModifyConfig\\",\\"Payload\\":{\\"streams\\":{\\"active-streams\\":6},\\"generic-vnf.vnf-id\\":\\"bd6af5c1-fc85-446d-bb59-553b0404075b\\"}}"]'
 
-#    try:
-#        event_dict = json.loads(event_json[0])
-#    except:
-#        continue
-#        requestID_old = requestID
+    try:
+        event_dict = json.loads(event_json[0])
+    except:
+        continue
+    requestID_old = requestID
 
-#    try:
-#        requestID = event_dict["CommonHeader"]["RequestID"]
+    try:
+        requestID = event_dict["CommonHeader"]["RequestID"]
 
-#        if requestID == requestID_old:
-#            continue
+        if requestID == requestID_old:
+            continue
 
-#        action = event_dict["Action"]
-#        vnf_id = event_dict["Payload"]["generic-vnf.vnf-id"]
-#        direction = event_dict["Payload"]["streams"]["active-streams"]
+        action = event_dict["Action"]
+        vnf_id = event_dict["Payload"]["generic-vnf.vnf-id"]
+        direction = event_dict["Payload"]["streams"]["active-streams"]
 
-#    except:
-#        None
+    except:
+        pass
 
     #testing fragment DB - looping with direc 4-6-4-6...
-    print("direction APPC=", direction)
-    if direc == 6:
-       direc=4
-    else:
-       direc=6
-    direction=direc
+#    print("direction APPC=", direction)
+#    if direc == 6:
+#       direc=4
+#    else:
+#       direc=6
+#    direction=direc
     #end testing fragment
 
     if direction == 6:
 
-        print ("Action: resize up", direction)
-        #r = action_gora() #this is for packet generator in vFW use case
+        print ("\nAction: resize up", direction, " >>>>>>>>>>>>>>>>>>>>>")
+        #r = action_gora() #this is only valid for packet generator in vFW use case
         #print ("Action response", r)
 
         shellCommand = "./test-resize.sh" + " " + "test-resizevm-db" + " " + "m2.large"
         print("starting: " + shellCommand)
-#        proc = subprocess.Popen( ['/home/ubuntu/clamp/test-resize.sh', 'test-resizevm-db', 'm2.large'], stdout=subprocess.PIPE, shell=True)
-#        proc = subprocess.call( ['/home/ubuntu/clamp/test-resize.sh', 'test-resizevm-db', 'm2.large'], shell=True)
+##        proc = subprocess.Popen( ['/home/ubuntu/clamp/test-resize.sh', 'test-resizevm-db', 'm2.large'], stdout=subprocess.PIPE, shell=True)
+##        proc = subprocess.call( ['/home/ubuntu/clamp/test-resize.sh', 'test-resizevm-db', 'm2.large'], shell=True)
         os.system("/bin/bash /home/ubuntu/clamp/test-resize.sh test-resizevm-db m2.large")
-        print("completed")
+        print("completed: resize up <<<<<<<<<<<<<<<<<<<<<<<<\n")
 
     if direction == 4:
 
-        print ("Action: resize down", direction)
-        #r= action_dol() #this is for packet generator in vFW use case
+        print ("\nAction: resize down", direction, " >>>>>>>>>>>>>>>>>>>>>")
+        #r= action_dol() #this is only valid for packet generator in vFW use case
         #print ("Action response", r)
 
         shellCommand = "./test-resize.sh" + " " + "test-resizevm-db" + " " + "m1.large"
         print("starting: " + shellCommand) 
-#        proc = subprocess.call( ['/home/ubuntu/clamp/test-resize.sh', 'test-resizevm-db', 'm2.large'], shell=True)
+##        proc = subprocess.call( ['/home/ubuntu/clamp/test-resize.sh', 'test-resizevm-db', 'm2.large'], shell=True)
         os.system("/bin/bash /home/ubuntu/clamp/test-resize.sh test-resizevm-db m1.large")
-        print("completed")
+        print("completed: resize down <<<<<<<<<<<<<<<<<<<<<<<<\n")
 
-    time.sleep(120)
+#    time.sleep(120)

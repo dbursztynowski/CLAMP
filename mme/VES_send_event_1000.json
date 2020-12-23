@@ -6,9 +6,9 @@
          "eventName":"vFirewallBroadcastPackets",
          "lastEpochMicrosec":1608136509825805,
          "priority":"Normal",
-         "reportingEntityName":"wef-mme-vnf-igs5no5lphyj",
+         "reportingEntityName":"vofwl01fwl-ad",
          "sequence":0,
-         "sourceName":"wef-mme-vnf-igs5no5lphyj",
+         "sourceName":"vofwl01fwl-ad",
          "startEpochMicrosec":1608136499825805,
          "version":3.0,
          "reportingEntityId":"No UUID available"
