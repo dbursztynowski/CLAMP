@@ -1,0 +1,91 @@
+resized VM:  VMtargetFlavor
+ID Name Status Networks |
+c67b5285-6988-41bb-83b4-1fe09dd2ce45 agent-wef-db ACTIVE ad_net=192.168.11.4, 10.254.184.247
+f3ae36f5-2d53-43aa-9aa0-1e8d85304915 test-resizevm-db ACTIVE ad_net=192.168.11.7, 10.254.184.165
+bf43b5b9-25de-4e26-bde9-0cf643bf99a8 wef-switch_vnf-kkhbcyfyrgqu ACTIVE wefcp-int_core_control_network-rcbemfu5nadl=172.16.4.10; wefcp-int_lte_control_network-pvzxvxeu22mk=172.16.1.10;
+31f94290-4c30-4cf9-bcc7-07b793dba3a8 wef-mme_vnf-igs5no5lphyj ACTIVE wefcp-int_core_control_network-rcbemfu5nadl=172.16.4.14; wefcp-int_lte_control_network-pvzxvxeu22mk=172.16.1.14;
+c045597f-6a59-4730-8d8c-74c3084ed7de wef-hss_vnf-iem7s3lls5oi ACTIVE wefcp-int_management_network-ec3uv4pwx67q=172.16.10.13, 10.254.185.20;
+97aac4b6-2b1a-460e-aac2-80c4d57f47ae wef-sp_gw_c_vnf-q3nm5u6ynmgf ACTIVE wefcp-int_core_control_network-rcbemfu5nadl=172.16.4.16; wefcp-int_management_network-ec3uv4pwx67q=172.16.10.16
+b0752839-5b36-4418-9399-01f0331d25c3 wef-aaa_vnf-tcfpjsrwelvb ACTIVE wefcp-int_core_control_network-rcbemfu5nadl=172.16.4.11; wefcp-int_management_network-ec3uv4pwx67q=172.16.10.11;
+7444120f-1441-412e-93aa-f8c7b55981c3 wef-sdn_firewall_vnf-2d4jwkhv6bz3 ACTIVE wefcp-int_management_network-ec3uv4pwx67q=172.16.10.17; wefcp-int_ovs_control_network-ftyrxvq4bwrw=172.16.6.17
+f94bb375-fcb9-4486-916d-70f60ee5aabb wef-dhcp_vnf-2rjrtybicr6d ACTIVE wefcp-int_core_control_network-rcbemfu5nadl=172.16.4.12; wefcp-int_management_network-ec3uv4pwx67q=172.16.10.12
+36761849-c208-4691-aa02-14dc5cfc66b7 wef-odl_controller_vnf-tid3nq7njeez ACTIVE wefcp-int_core_control_network-rcbemfu5nadl=172.16.4.15; wefcp-int_management_network-ec3uv4pwx67q=172.16.10.15;
+b3ba6f2d-e8f6-419e-a810-a07ddce54621 vofwl01pgn-ad ACTIVE ad_net=192.168.11.103, 10.254.185.17;
+6704a94c-e63a-4acd-9a5d-71fcd36345d0 vofwl01fwl-ad ACTIVE ad_net=192.168.11.101, 10.254.185.27;
+0634aecd-bf89-4306-8af8-363cfa006db6 vofwl01snk-ad ACTIVE ad_net=192.168.11.102, 10.254.185.18;
+ff77ce0f-4aae-4365-b449-d639fab78d1c testad ACTIVE ad_ext=192.168.12.8; ad_net=192.168.11.13,
+resized VM:  VMtargetFlavor
+ID Name Status Networks |
+c67b5285-6988-41bb-83b4-1fe09dd2ce45 agent-wef-db ACTIVE ad_net=192.168.11.4, 10.254.184.247
+f3ae36f5-2d53-43aa-9aa0-1e8d85304915 test-resizevm-db ACTIVE ad_net=192.168.11.7, 10.254.184.165
+bf43b5b9-25de-4e26-bde9-0cf643bf99a8 wef-switch_vnf-kkhbcyfyrgqu ACTIVE wefcp-int_core_control_network-rcbemfu5nadl=172.16.4.10; wefcp-int_lte_control_network-pvzxvxeu22mk=172.16.1.10;
+31f94290-4c30-4cf9-bcc7-07b793dba3a8 wef-mme_vnf-igs5no5lphyj ACTIVE wefcp-int_core_control_network-rcbemfu5nadl=172.16.4.14; wefcp-int_lte_control_network-pvzxvxeu22mk=172.16.1.14;
+c045597f-6a59-4730-8d8c-74c3084ed7de wef-hss_vnf-iem7s3lls5oi ACTIVE wefcp-int_management_network-ec3uv4pwx67q=172.16.10.13, 10.254.185.20;
+97aac4b6-2b1a-460e-aac2-80c4d57f47ae wef-sp_gw_c_vnf-q3nm5u6ynmgf ACTIVE wefcp-int_core_control_network-rcbemfu5nadl=172.16.4.16; wefcp-int_management_network-ec3uv4pwx67q=172.16.10.16
+b0752839-5b36-4418-9399-01f0331d25c3 wef-aaa_vnf-tcfpjsrwelvb ACTIVE wefcp-int_core_control_network-rcbemfu5nadl=172.16.4.11; wefcp-int_management_network-ec3uv4pwx67q=172.16.10.11;
+7444120f-1441-412e-93aa-f8c7b55981c3 wef-sdn_firewall_vnf-2d4jwkhv6bz3 ACTIVE wefcp-int_management_network-ec3uv4pwx67q=172.16.10.17; wefcp-int_ovs_control_network-ftyrxvq4bwrw=172.16.6.17
+f94bb375-fcb9-4486-916d-70f60ee5aabb wef-dhcp_vnf-2rjrtybicr6d ACTIVE wefcp-int_core_control_network-rcbemfu5nadl=172.16.4.12; wefcp-int_management_network-ec3uv4pwx67q=172.16.10.12
+36761849-c208-4691-aa02-14dc5cfc66b7 wef-odl_controller_vnf-tid3nq7njeez ACTIVE wefcp-int_core_control_network-rcbemfu5nadl=172.16.4.15; wefcp-int_management_network-ec3uv4pwx67q=172.16.10.15;
+b3ba6f2d-e8f6-419e-a810-a07ddce54621 vofwl01pgn-ad ACTIVE ad_net=192.168.11.103, 10.254.185.17;
+6704a94c-e63a-4acd-9a5d-71fcd36345d0 vofwl01fwl-ad ACTIVE ad_net=192.168.11.101, 10.254.185.27;
+0634aecd-bf89-4306-8af8-363cfa006db6 vofwl01snk-ad ACTIVE ad_net=192.168.11.102, 10.254.185.18;
+ff77ce0f-4aae-4365-b449-d639fab78d1c testad ACTIVE ad_ext=192.168.12.8; ad_net=192.168.11.13,
+resized VM:  VMtargetFlavor
+ID Name Status Networks |
+c67b5285-6988-41bb-83b4-1fe09dd2ce45 agent-wef-db ACTIVE ad_net=192.168.11.4, 10.254.184.247
+f3ae36f5-2d53-43aa-9aa0-1e8d85304915 test-resizevm-db ACTIVE ad_net=192.168.11.7, 10.254.184.165
+bf43b5b9-25de-4e26-bde9-0cf643bf99a8 wef-switch_vnf-kkhbcyfyrgqu ACTIVE wefcp-int_core_control_network-rcbemfu5nadl=172.16.4.10; wefcp-int_lte_control_network-pvzxvxeu22mk=172.16.1.10;
+31f94290-4c30-4cf9-bcc7-07b793dba3a8 wef-mme_vnf-igs5no5lphyj ACTIVE wefcp-int_core_control_network-rcbemfu5nadl=172.16.4.14; wefcp-int_lte_control_network-pvzxvxeu22mk=172.16.1.14;
+c045597f-6a59-4730-8d8c-74c3084ed7de wef-hss_vnf-iem7s3lls5oi ACTIVE wefcp-int_management_network-ec3uv4pwx67q=172.16.10.13, 10.254.185.20;
+97aac4b6-2b1a-460e-aac2-80c4d57f47ae wef-sp_gw_c_vnf-q3nm5u6ynmgf ACTIVE wefcp-int_core_control_network-rcbemfu5nadl=172.16.4.16; wefcp-int_management_network-ec3uv4pwx67q=172.16.10.16
+b0752839-5b36-4418-9399-01f0331d25c3 wef-aaa_vnf-tcfpjsrwelvb ACTIVE wefcp-int_core_control_network-rcbemfu5nadl=172.16.4.11; wefcp-int_management_network-ec3uv4pwx67q=172.16.10.11;
+7444120f-1441-412e-93aa-f8c7b55981c3 wef-sdn_firewall_vnf-2d4jwkhv6bz3 ACTIVE wefcp-int_management_network-ec3uv4pwx67q=172.16.10.17; wefcp-int_ovs_control_network-ftyrxvq4bwrw=172.16.6.17
+f94bb375-fcb9-4486-916d-70f60ee5aabb wef-dhcp_vnf-2rjrtybicr6d ACTIVE wefcp-int_core_control_network-rcbemfu5nadl=172.16.4.12; wefcp-int_management_network-ec3uv4pwx67q=172.16.10.12
+36761849-c208-4691-aa02-14dc5cfc66b7 wef-odl_controller_vnf-tid3nq7njeez ACTIVE wefcp-int_core_control_network-rcbemfu5nadl=172.16.4.15; wefcp-int_management_network-ec3uv4pwx67q=172.16.10.15;
+b3ba6f2d-e8f6-419e-a810-a07ddce54621 vofwl01pgn-ad ACTIVE ad_net=192.168.11.103, 10.254.185.17;
+6704a94c-e63a-4acd-9a5d-71fcd36345d0 vofwl01fwl-ad ACTIVE ad_net=192.168.11.101, 10.254.185.27;
+0634aecd-bf89-4306-8af8-363cfa006db6 vofwl01snk-ad ACTIVE ad_net=192.168.11.102, 10.254.185.18;
+ff77ce0f-4aae-4365-b449-d639fab78d1c testad ACTIVE ad_ext=192.168.12.8; ad_net=192.168.11.13,
+resized VM:  VMtargetFlavor
+ID Name Status Networks |
+c67b5285-6988-41bb-83b4-1fe09dd2ce45 agent-wef-db ACTIVE ad_net=192.168.11.4, 10.254.184.247
+f3ae36f5-2d53-43aa-9aa0-1e8d85304915 test-resizevm-db ACTIVE ad_net=192.168.11.7, 10.254.184.165
+bf43b5b9-25de-4e26-bde9-0cf643bf99a8 wef-switch_vnf-kkhbcyfyrgqu ACTIVE wefcp-int_core_control_network-rcbemfu5nadl=172.16.4.10; wefcp-int_lte_control_network-pvzxvxeu22mk=172.16.1.10;
+31f94290-4c30-4cf9-bcc7-07b793dba3a8 wef-mme_vnf-igs5no5lphyj ACTIVE wefcp-int_core_control_network-rcbemfu5nadl=172.16.4.14; wefcp-int_lte_control_network-pvzxvxeu22mk=172.16.1.14;
+c045597f-6a59-4730-8d8c-74c3084ed7de wef-hss_vnf-iem7s3lls5oi ACTIVE wefcp-int_management_network-ec3uv4pwx67q=172.16.10.13, 10.254.185.20;
+97aac4b6-2b1a-460e-aac2-80c4d57f47ae wef-sp_gw_c_vnf-q3nm5u6ynmgf ACTIVE wefcp-int_core_control_network-rcbemfu5nadl=172.16.4.16; wefcp-int_management_network-ec3uv4pwx67q=172.16.10.16
+b0752839-5b36-4418-9399-01f0331d25c3 wef-aaa_vnf-tcfpjsrwelvb ACTIVE wefcp-int_core_control_network-rcbemfu5nadl=172.16.4.11; wefcp-int_management_network-ec3uv4pwx67q=172.16.10.11;
+7444120f-1441-412e-93aa-f8c7b55981c3 wef-sdn_firewall_vnf-2d4jwkhv6bz3 ACTIVE wefcp-int_management_network-ec3uv4pwx67q=172.16.10.17; wefcp-int_ovs_control_network-ftyrxvq4bwrw=172.16.6.17
+f94bb375-fcb9-4486-916d-70f60ee5aabb wef-dhcp_vnf-2rjrtybicr6d ACTIVE wefcp-int_core_control_network-rcbemfu5nadl=172.16.4.12; wefcp-int_management_network-ec3uv4pwx67q=172.16.10.12
+36761849-c208-4691-aa02-14dc5cfc66b7 wef-odl_controller_vnf-tid3nq7njeez ACTIVE wefcp-int_core_control_network-rcbemfu5nadl=172.16.4.15; wefcp-int_management_network-ec3uv4pwx67q=172.16.10.15;
+b3ba6f2d-e8f6-419e-a810-a07ddce54621 vofwl01pgn-ad ACTIVE ad_net=192.168.11.103, 10.254.185.17;
+6704a94c-e63a-4acd-9a5d-71fcd36345d0 vofwl01fwl-ad ACTIVE ad_net=192.168.11.101, 10.254.185.27;
+0634aecd-bf89-4306-8af8-363cfa006db6 vofwl01snk-ad ACTIVE ad_net=192.168.11.102, 10.254.185.18;
+ff77ce0f-4aae-4365-b449-d639fab78d1c testad ACTIVE ad_ext=192.168.12.8; ad_net=192.168.11.13,
+resized VM: test-resizevm-db VMtargetFlavor
+f3ae36f5-2d53-43aa-9aa0-1e8d85304915 test-resizevm-db ACTIVE ad_net=192.168.11.7, 10.254.184.165
+
+Server resizing... 0% completeServer resizing... 0% completeServer resizing... 0% completeServer resizing... 0% completeServer resizing... 0% completeServer resizing... 0% completeServer resizing... 0% completeServer resizing... 0% completeServer resizing... 100% complete
+Finished
+resized VM: test-resizevm-db VMtargetFlavor
+f3ae36f5-2d53-43aa-9aa0-1e8d85304915 test-resizevm-db ACTIVE ad_net=192.168.11.7, 10.254.184.165
+
+Server resizing... 0% completeServer resizing... 0% completeServer resizing... 100% complete
+Finished
+resized VM: test-resizevm-db VMtargetFlavor
+f3ae36f5-2d53-43aa-9aa0-1e8d85304915 test-resizevm-db VERIFY_RESIZE ad_net=192.168.11.7, 10.254.184.165
+resized VM: test-resizevm-db VMtargetFlavor
+f3ae36f5-2d53-43aa-9aa0-1e8d85304915 test-resizevm-db ACTIVE ad_net=192.168.11.7, 10.254.184.165
+
+Server resizing... 0% completeServer resizing... 0% completeServer resizing... 0% completeServer resizing... 0% completeServer resizing... 0% completeServer resizing... 0% completeServer resizing... 100% complete
+Finished
+resized VM: test-resizevm-db VMtargetFlavor
+f3ae36f5-2d53-43aa-9aa0-1e8d85304915 test-resizevm-db ACTIVE ad_net=192.168.11.7, 10.254.184.165
+
+Server resizing... 0% completeServer resizing... 0% completeServer resizing... 0% completeServer resizing... 0% completeServer resizing... 0% completeServer resizing... 0% completeServer resizing... 0% completeServer resizing... 100% complete
+Finished
+resized VM: test-resizevm-db VMtargetFlavor
+f3ae36f5-2d53-43aa-9aa0-1e8d85304915 test-resizevm-db ACTIVE ad_net=192.168.11.7, 10.254.184.165
+
+Server resizing... 0% completeServer resizing... 0% completeServer resizing... 0% completeServer resizing... 0% completeServer resizing... 0% completeServer resizing... 0% completeServer resizing... 0% completeServer resizing... 100% complete
+Finished

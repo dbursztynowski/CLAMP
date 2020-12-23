@@ -3,6 +3,7 @@ import json
 import requests
 import time
 import subprocess
+import os
 
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 
@@ -29,47 +30,71 @@ headers = {'accept': 'application/json', 'cache-control': 'no-cache', 'postman-t
 requestID = None
 requestID_old = None
 
+#testing DB
+direc=4 #starting with smaller size
+direction = 0
+
 while True:
-    time.sleep(5)
-    r = requests.get(url, headers=headers, verify=False)
-    event_json = r.json()
-    print(event_json)
 
-    direction = 0
-    #event_json='["{\\"CommonHeader\\":{\\"TimeStamp\\":1608547151210,\\"APIver\\":\\"1.01\\",\\"RequestID\\":\\"08dd8ebc-00ff-43c5-bfbe-ecf5cf60beec\\",\\"SubRequestID\\":\\"ab23127d-fe65-4ae0-afe6-034dd0769afb\\",\\"RequestTrack\\":[],\\"Flags\\":[]},\\"Action\\":\\"ModifyConfig\\",\\"Payload\\":{\\"streams\\":{\\"active-streams\\":6},\\"generic-vnf.vnf-id\\":\\"bd6af5c1-fc85-446d-bb59-553b0404075b\\"}}"]'
+#    time.sleep(5)
+#    r = requests.get(url, headers=headers, verify=False)
+#    event_json = r.json()
+#    print(event_json)
 
-    try:
-        event_dict = json.loads(event_json[0])
-    except:
-        continue
-        requestID_old = requestID
+#    direction = 0
+#    #event_json='["{\\"CommonHeader\\":{\\"TimeStamp\\":1608547151210,\\"APIver\\":\\"1.01\\",\\"RequestID\\":\\"08dd8ebc-00ff-43c5-bfbe-ecf5cf60beec\\",\\"SubRequestID\\":\\"ab23127d-fe65-4ae0-afe6-034dd0769afb\\",\\"RequestTrack\\":[],\\"Flags\\":[]},\\"Action\\":\\"ModifyConfig\\",\\"Payload\\":{\\"streams\\":{\\"active-streams\\":6},\\"generic-vnf.vnf-id\\":\\"bd6af5c1-fc85-446d-bb59-553b0404075b\\"}}"]'
 
-    try:
-        requestID = event_dict["CommonHeader"]["RequestID"]
-        
-        if requestID == requestID_old:
-            continue
-                
-        action = event_dict["Action"]
-        vnf_id = event_dict["Payload"]["generic-vnf.vnf-id"]
-        direction = event_dict["Payload"]["streams"]["active-streams"]
+#    try:
+#        event_dict = json.loads(event_json[0])
+#    except:
+#        continue
+#        requestID_old = requestID
 
-    except:
-        None
+#    try:
+#        requestID = event_dict["CommonHeader"]["RequestID"]
+
+#        if requestID == requestID_old:
+#            continue
+
+#        action = event_dict["Action"]
+#        vnf_id = event_dict["Payload"]["generic-vnf.vnf-id"]
+#        direction = event_dict["Payload"]["streams"]["active-streams"]
+
+#    except:
+#        None
+
+    #testing fragment DB - looping with direc 4-6-4-6...
+    print("direction APPC=", direction)
+    if direc == 6:
+       direc=4
+    else:
+       direc=6
+    direction=direc
+    #end testing fragment
 
     if direction == 6:
-        
+
         print ("Action: resize up", direction)
         #r = action_gora() #this is for packet generator in vFW use case
         #print ("Action response", r)
-    
-        subprocess.Popen("resize2m2.sh", stdout=subprocess.PIPE, shell=True)
-    
+
+        shellCommand = "./test-resize.sh" + " " + "test-resizevm-db" + " " + "m2.large"
+        print("starting: " + shellCommand)
+#        proc = subprocess.Popen( ['/home/ubuntu/clamp/test-resize.sh', 'test-resizevm-db', 'm2.large'], stdout=subprocess.PIPE, shell=True)
+#        proc = subprocess.call( ['/home/ubuntu/clamp/test-resize.sh', 'test-resizevm-db', 'm2.large'], shell=True)
+        os.system("/bin/bash /home/ubuntu/clamp/test-resize.sh test-resizevm-db m2.large")
+        print("completed")
+
     if direction == 4:
-        
+
         print ("Action: resize down", direction)
         #r= action_dol() #this is for packet generator in vFW use case
         #print ("Action response", r)
 
-        subprocess.Popen("resize2m1.sh", stdout=subprocess.PIPE, shell=True)
-    
+        shellCommand = "./test-resize.sh" + " " + "test-resizevm-db" + " " + "m1.large"
+        print("starting: " + shellCommand) 
+#        proc = subprocess.call( ['/home/ubuntu/clamp/test-resize.sh', 'test-resizevm-db', 'm2.large'], shell=True)
+        os.system("/bin/bash /home/ubuntu/clamp/test-resize.sh test-resizevm-db m1.large")
+        print("completed")
+
+    time.sleep(120)

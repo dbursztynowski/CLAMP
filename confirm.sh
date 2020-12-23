@@ -58,14 +58,18 @@ COUNTER=0
 MAX_COUNTER=10
 SLEEP_TIME="2"
 
+#$1 is the name of the VM to confirm
+VMname=$1
+
 # wait for entering VERIFY_RESIZE state and send resize confirm afterwards
-echo VERIFY_RESIZE being awaited. VM current status:
+echo "VERIFY_RESIZE for $VMname being awaited. VM current status:"
 while [  $COUNTER -lt  $MAX_COUNTER ]; do
     let COUNTER=COUNTER+1
-    openstack server list | grep "| test-resizevm-db | VERIFY_RESIZE |"
-    if openstack server list | grep -q "| test-resizevm-db | VERIFY_RESIZE |" ; then
+#    LIST=$(openstack server list | grep " $VMname ")
+    openstack server list | grep " $VMname " | awk '{print $4, $6}'
+    if [ "$(openstack server list | grep " $VNname " | grep " VERIFY_RESIZE " | awk '{print $6}')" == VERIFY_RESIZE ]; then
         # VERIFY_RESIZE state entered, now Nova expects resize confirm
-        openstack server resize confirm test-resizevm-db
+        openstack server resize confirm "$VMname"
         echo "VERIFY_RESIZE entered, resize confirm sent. ACTIVE being awaited..."
         #sleep ${SLEEP_TIME+2}
         let COUNTER=MAX_COUNTER+1
@@ -81,8 +85,8 @@ ACTIVE=1
 COUNTER=0
 while [  $COUNTER -lt  $MAX_COUNTER ]; do
     let COUNTER=COUNTER+1
-    openstack server list | grep "| test-resizevm-db | ACTIVE |"
-    if openstack server list | grep -q "| test-resizevm-db | ACTIVE |" ; then
+    openstack server list | grep " $VMname " | awk '{print $4, $6}'
+    if [ "$(openstack server list | grep " $VMname " | grep " ACTIVE " | awk '{print $6}')" == ACTIVE ]; then
         let ACTIVE=0
         break
     else
@@ -97,4 +101,4 @@ if [ $ACTIVE -eq 1 ]; then
 else
     echo "VM is ACTIVE. VM final status:"
 fi
-openstack server list | grep "test-resizevm-db"
+openstack server list | grep " $VMname " | awk '{print $2, $4, $6, $8, $9}'
