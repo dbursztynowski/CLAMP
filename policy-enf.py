@@ -1,4 +1,8 @@
 #!/usr/bin/python
+
+#Policy enforcement script to baypass APPC
+# CLAMP modules operate  on vFW instance byt  the ....
+
 import json
 import requests
 import time
@@ -37,6 +41,7 @@ while True:
 
     r = requests.get(url, headers=headers, verify=False)
     event_json = r.json()
+    print(event_json)
     if len(event_json) > 0:
       print()
       print("length event_json=",len(event_json))
@@ -44,7 +49,7 @@ while True:
     #event_json='["{\\"CommonHeader\\":{\\"TimeStamp\\":1608547151210,\\"APIver\\":\\"1.01\\",\\"RequestID\\":\\"08dd8ebc-00ff-43c5-bfbe-ecf5cf60beec\\",\\"SubRequestID\\":\\"ab23127d-fe65-4ae0-afe6-034dd0769afb\\",\\"RequestTrack\\":[],\\"Flags\\":[]},\\"Action\\":\\"ModifyConfig\\",\\"Payload\\":{\\"streams\\":{\\"active-streams\\":6},\\"generic-vnf.vnf-id\\":\\"bd6af5c1-fc85-446d-bb59-553b0404075b\\"}}"]'
 
     #scan json array from the bus element by element (actually, messages from the inner list)
-    velidRequest = False
+    validRequest = False
     for i in range(len(event_json)):
 
         validRequest = False
