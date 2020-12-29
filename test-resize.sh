@@ -2,6 +2,9 @@
 # resize2m1.sh - resize  to m1.large (see below)
 # remember in OpenStack you can not resize to flavor with a smaller disk than 
 # current size; disk can only bi scaled up (but no such constrints on CPU and memory)
+# ARGUMNETTS:
+#  $1 is the name in OpenStack of the VM we want to resize
+#  $2 is the target flavor to which we resize given VM 
 #+++++++++++++++++++++++++++++++++++=================================================
 
 #!/usr/bin/env bash
@@ -52,14 +55,12 @@ export OS_INTERFACE=public
 export OS_IDENTITY_API_VERSION=3
 
 # arg $1 is the VM name in OpenStack
-# arg $2 is the target flavor to which we resize
-
+# arg $2 is the target flavor to which we resize 
 VMname="$1"
 VMtargetFlavor="$2"
 
 echo "resized VM:" "$VMname" "VMtargetFlavor"
 echo "resized VM:" "$VMname" "VMtargetFlavor" >> r.out
-
 
 echo  Resize - initial VM status:
 openstack server list | grep " $VMname " | awk '{print $2, $4, $6, $8, $9}' >> r.out

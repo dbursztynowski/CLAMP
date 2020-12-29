@@ -34,12 +34,13 @@ cm3=f.find(',',cl3)
 evnt=f[:cl1] + ':\"' + sys.argv[1] + '\"' + f[cm1:cl2] + ':\"' + sys.argv[1] + '\"' + f[cm2:cl3] + ':' + str(sys.argv[2]) + f[cm3:]
 
 if (len(sys.argv) == 4) and (sys.argv[3] == '-v'):
-   print(evnt)
+  print("VESprepareSendEvent.py:: prepared event:") 
+  print(evnt)
 
 fil.close()
 
-fil = open("VES_send_event.json", "w")
+fil = open("VES_send_event.json", "w+")
 fil.write(evnt)
 fil.close
 
-print("VES send event prepared")
+print("VESprepareSendEvent.py:: VES send event prepared")
