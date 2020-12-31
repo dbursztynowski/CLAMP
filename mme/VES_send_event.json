@@ -18,7 +18,7 @@
          "vNicPerformanceArray":[
             {
                "receivedOctetsDelta":43129.000000,
-               "receivedTotalPacketsDelta":290,
+               "receivedTotalPacketsDelta":200,
                "transmittedOctetsDelta":0.000000,
                "transmittedTotalPacketsDelta":0.000000,
                "valuesAreSuspect":"true",
