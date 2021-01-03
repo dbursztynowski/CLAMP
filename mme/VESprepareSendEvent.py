@@ -9,6 +9,8 @@ print("lensysargv= %i, argv[2]= %s" % (len(sys.argv), sys.argv[2]))
 if len(sys.argv) == 4:
   print("lensysargv= %i, argv[3]= %s" % (len(sys.argv), sys.argv[3]))
 
+print("preparing VES telemetry event")
+
 #test requests
 #response = requests.get('http://10.254.184.197:8888/clampmme.log')
 #print(response.content)

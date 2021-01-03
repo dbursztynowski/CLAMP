@@ -66,6 +66,7 @@ echo  Resize - initial VM status:
 openstack server list | grep " $VMname " | awk '{print $2, $4, $6, $8, $9}' >> r.out
 
 echo Calling Nova to resize the VM.
+#nova resize "$VMname" "$VMtargetFlavor" --poll
 nova resize "$VMname" "$VMtargetFlavor" --poll >> r.out
 
 if [ "$?" = "0" ] ; then

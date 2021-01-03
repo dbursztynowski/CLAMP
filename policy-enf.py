@@ -62,19 +62,19 @@ while True:
     # testing printouts for the message bus
     if verbose:
         print("\ntest Mesage bus")
-        time.sleep(1)
         r = requests.get(url1, headers=headers, verify=False)
         x = r.json()
         if len(x) > 0:
             print("VES topic:", x[0])
+            time.sleep(1)
         else:
             print("VES topic:", x)
-    if vverbose:
-        time.sleep(1)
+    if vvverbose:
         r = requests.get(url2, headers=headers, verify=False)
         print("TCA topic:", r.json())
         time.sleep(1)
 
+    if vverbose:
         r = requests.get(url3, headers=headers, verify=False)
         x = r.json()
         if len(x) > 0:
@@ -155,7 +155,7 @@ while True:
         print("starting: " + shellCommand)
 ##        proc = subprocess.Popen( ['/home/ubuntu/clamp/test-resize.sh', 'test-resizevm-db', 'm2.large'], stdout=subprocess.PIPE, shell=True)
 ##        proc = subprocess.call( ['/home/ubuntu/clamp/test-resize.sh', 'test-resizevm-db', 'm2.large'], shell=True)
-        os.system("/bin/bash /home/ubuntu/clamp/test-resize.sh test-resizevm-db m2.large")
+        os.system("/bin/bash /home/ubuntu/clamp/resize.sh test-resizevm-db m2.large")
         print("Resize up: completed <<<<<<<<<<<<<<<<<<<<<<<<")
 
     if action == "ModifyConfig" and direction == 4:
@@ -168,6 +168,6 @@ while True:
         shellCommand = "./test-resize.sh" + " " + "test-resizevm-db" + " " + "m1.large"
         print("starting: " + shellCommand) 
 ##        proc = subprocess.call( ['/home/ubuntu/clamp/test-resize.sh', 'test-resizevm-db', 'm2.large'], shell=True)
-        os.system("/bin/bash /home/ubuntu/clamp/test-resize.sh test-resizevm-db m1.large")
+        os.system("/bin/bash /home/ubuntu/clamp/resize.sh test-resizevm-db m1.large")
         print("Rsize down: completed <<<<<<<<<<<<<<<<<<<<<<<<")
 
