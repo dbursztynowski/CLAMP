@@ -4,12 +4,12 @@
          "domain":"measurementsForVfScaling",
          "eventId":"mvfs00000001",
          "eventName":"vFirewallBroadcastPackets",
-         "lastEpochMicrosec":1608136509825805,
+         "lastEpochMicrosec":1618584505243849,
          "priority":"Normal",
-         "reportingEntityName":"vofwl01fwl-ad",
+         "reportingEntityName":"aaa",
          "sequence":0,
-         "sourceName":"vofwl01fwl-ad",
-         "startEpochMicrosec":1608136499825805,
+         "sourceName":"aaa",
+         "startEpochMicrosec":1618584505243876,
          "version":3.0,
          "reportingEntityId":"No UUID available"
       },
@@ -18,7 +18,7 @@
          "vNicPerformanceArray":[
             {
                "receivedOctetsDelta":43129.000000,
-               "receivedTotalPacketsDelta":290,
+               "receivedTotalPacketsDelta":1,
                "transmittedOctetsDelta":0.000000,
                "transmittedTotalPacketsDelta":0.000000,
                "valuesAreSuspect":"true",
